@@ -16,6 +16,7 @@ export const fetchJson = (url, options = {}) => {
     if (options.user && options.user.authenticated && options.user.token) {
         requestHeaders.set('Authorization', options.user.token);
     }
+    requestHeaders.set('Access-Control-Allow-Origin', '*');
 
     return fetch(url, { ...options, headers: requestHeaders })
         .then(response =>
